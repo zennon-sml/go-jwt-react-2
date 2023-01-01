@@ -1,15 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/zennon-sml/GJR2/database"
 )
 
-func main() {
-	r := gin.Default()
-	r.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message: ": "miaaaaaaaaaaaau",
-		})
-	})
-	r.Run(":8080")
+func main(){
+	database.MakeCon()
 }
