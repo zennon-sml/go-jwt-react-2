@@ -1,16 +1,18 @@
 package database
 
-import(
-	"os"	
-	"log"
+import (
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/joho/godotenv"
-	"gorm.io/gorm"
+	"github.com/zennon-sml/GJR2/models"
 	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 func MakeCon(){
-	err := godotenv.Load(".env")
-	if err != nil {
+	er := godotenv.Load(".env")
+	if er != nil {
 		log.Fatal("error loading .env file")
 	}
 	user:= os.Getenv("DB_USER")
@@ -23,7 +25,8 @@ func MakeCon(){
 	domain := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=%s", host, user, password, db, port, tzone)
 //	domain := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", usuario, senha, host, porta, banco)
 
-	_,err = gorm.Open(postgres.Open(domain), &gorm.Config{})
+	con, err := gorm.Open(postgres.Open(domain), &gorm.Config{})
+	con.Debug().AutoMigrate(&models.User{})	
 	if err != nil{
 		log.Fatal("cant conect to database")
 	}else{
