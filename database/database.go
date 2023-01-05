@@ -10,6 +10,9 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
+
+var DB *gorm.DB
+
 func MakeCon(){
 	er := godotenv.Load(".env")
 	if er != nil {
@@ -26,10 +29,11 @@ func MakeCon(){
 //	domain := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", usuario, senha, host, porta, banco)
 
 	con, err := gorm.Open(postgres.Open(domain), &gorm.Config{})
-	con.Debug().AutoMigrate(&models.User{})	
+	
 	if err != nil{
 		log.Fatal("cant conect to database")
-	}else{
-		fmt.Println("conection suced")
 	}
+
+	con.AutoMigrate(&models.User{})	
+	DB = con
 }
