@@ -1,14 +1,20 @@
 package controllers
 
 import (
+	// "crypto/aes"
+	"fmt"
+	// "go/token"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/zennon-sml/GJR2/database"
 	"github.com/zennon-sml/GJR2/models"
 	"golang.org/x/crypto/bcrypt"
 )
 
+const SecretKey = "secret"
 func Register(ctx *gin.Context){
 //using bodyparse to set user.pass to bytes
 	//	user := models.User{}
@@ -40,8 +46,26 @@ func Login(ctx *gin.Context){
 		}else if err := bcrypt.CompareHashAndPassword(user.Password, []byte(data["password"]));err != nil{
 			ctx.JSON(http.StatusBadRequest, gin.H{"error":"wrong password"})
 		}else{
-		ctx.JSON(200, user)
+		claims := jwt.NewWithClaims(jwt.SigningMethodHS256,jwt.StandardClaims{
+			Issuer: fmt.Sprintf("%d", user.Id),
+			ExpiresAt: time.Now().Add(time.Minute * 4).Unix(),
+		})
+
+		token, err := claims.SignedString([]byte(SecretKey))
+		if err != nil{
+			ctx.JSON(http.StatusBadRequest, gin.H{"error":"could not log in my frend"})
+		}else{
+			cookie, err := ctx.Cookie(token)
+			if err != nil {
+			ctx.JSON(http.StatusBadRequest, gin.H{"error":"could not log in my frend"})
+			}else{
+				ctx.SetCookie("jwt", token,240,"/v1/login","localhost",false,true)
+				ctx.JSON(200,cookie)
+			}
+			//ctx.JSON(200, token)
 		}
+	}
+		
 	}
 
 }
