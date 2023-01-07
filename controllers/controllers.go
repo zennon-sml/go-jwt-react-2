@@ -89,10 +89,17 @@ func UserAuth(ctx *gin.Context) {
 	}
 	//converting to standartclaims to get Issuer function
 	claims := token.Claims.(*jwt.StandardClaims)
-	//retrieve the user by id from the token, from database to validate
+	//retrieve the user by id from the token, from database
 	var user models.User
 	database.DB.Where("id = ?", claims.Issuer).First(&user)
 
 	ctx.JSON(200, user)
 
+}
+
+func Logout(ctx *gin.Context) {
+	//set the cookie to and expired one so the valid one is deleted
+	ctx.SetCookie("jwt", "", int(-1), "", "", false, true)
+
+	ctx.JSON(200, gin.H{"messge": "youre loged out, congrats"})
 }
