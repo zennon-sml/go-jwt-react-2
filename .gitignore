@@ -1,3 +1,4 @@
 GJR2
 CompileDaemon
-.vscode/
+.vscode
+.env
