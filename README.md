@@ -2,7 +2,7 @@
 
 
 
-<h2> <p align="center"> Golang JWT Auth API with React </p> </h2>
+<h2> <p align="center"> GOLANG JWT AUTH API WITH REACT </p> </h2>
 
 - [x] Using **GIN** has server and main tool
 - [x] Making a basic **auth process** from the **JSON requests** 
