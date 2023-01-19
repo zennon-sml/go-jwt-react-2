@@ -12,7 +12,6 @@ import (
 func main() {
 	database.MakeCon()
 	router := gin.Default()
-	routes.SetUpRoutes(router)
 
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
@@ -26,5 +25,6 @@ func main() {
 		MaxAge: 12 * time.Hour,
 	}))
 
+	routes.SetUpRoutes(router)
 	router.Run(":8000")
 }
