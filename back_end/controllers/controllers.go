@@ -70,8 +70,7 @@ func Login(ctx *gin.Context) {
 	ctx.SetSameSite(http.SameSiteLaxMode)
 	//set the cookie on the browser http/only
 	ctx.SetCookie("jwt", token, 3600, "", "", false, true)
-	ctx.JSON(200, gin.H{"status": "loged :)"})
-
+	ctx.JSON(200, gin.H{"status": "loged in :)"})
 }
 
 func UserAuth(ctx *gin.Context) {
@@ -94,12 +93,11 @@ func UserAuth(ctx *gin.Context) {
 	database.DB.Where("id = ?", claims.Issuer).First(&user)
 
 	ctx.JSON(200, user)
-
 }
 
 func Logout(ctx *gin.Context) {
 	//set the cookie to and expired one so the valid one is deleted
 	ctx.SetCookie("jwt", "", int(-1), "", "", false, true)
 
-	ctx.JSON(200, gin.H{"messge": "youre loged out, congrats"})
+	ctx.JSON(200, gin.H{"messge": "youre loged out :/"})
 }

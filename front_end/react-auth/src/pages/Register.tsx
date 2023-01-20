@@ -1,5 +1,4 @@
 import React, { SyntheticEvent, useState } from "react";
-import { redirect as red } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
