@@ -1,12 +1,15 @@
 import React, { SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        console.log(email, password)
+        
         await fetch('http://localhost:8000/v1/login',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -17,6 +20,10 @@ const Login = () => {
             })
         })
         
+        setRedirect(true);
+    }
+    if (redirect) {
+        navigate("/")
     }
 
     return (
