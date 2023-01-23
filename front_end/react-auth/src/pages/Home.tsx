@@ -1,11 +1,14 @@
-import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-const github () = {
-    navigate('/');
-}
 
 const Home = (props: {username: string; email: string}) =>{
+
+    const github = () => {
+        window.location.replace('https://github.com/zennon-sml');
+    }
+    const linkedin = () => {
+        window.location.replace('https://www.linkedin.com/in/zennon-sampaio/');
+    }
+
     let cardProfile;
     if(props.username){
         cardProfile = (
@@ -26,7 +29,7 @@ const Home = (props: {username: string; email: string}) =>{
                     <span>{props.email}</span>
                     <div className="buttons">  
                         <button className="btn btn-outline-primary px-4" onClick={github}>github</button>
-                        <button className="btn btn-primary px-4 ms-3" onClick={}>linkedin</button>
+                        <button className="btn btn-primary px-4 ms-3" onClick={linkedin}>linkedin</button>
                         {/* https://www.linkedin.com/in/zennon-sampaio/
                         https://github.com/zennon-sml */}
                     </div>  
