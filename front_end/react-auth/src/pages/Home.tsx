@@ -1,5 +1,9 @@
+import { useNavigate } from "react-router-dom";
 
-
+const navigate = useNavigate();
+const github () = {
+    navigate('/');
+}
 
 const Home = (props: {username: string; email: string}) =>{
     let cardProfile;
@@ -21,8 +25,8 @@ const Home = (props: {username: string; email: string}) =>{
                     <h3 className="mt-2 mb-0">{props.username}</h3>
                     <span>{props.email}</span>
                     <div className="buttons">  
-                        <button className="btn btn-outline-primary px-4" >github</button>
-                        <button className="btn btn-primary px-4 ms-3">linkedin</button>
+                        <button className="btn btn-outline-primary px-4" onClick={github}>github</button>
+                        <button className="btn btn-primary px-4 ms-3" onClick={}>linkedin</button>
                         {/* https://www.linkedin.com/in/zennon-sampaio/
                         https://github.com/zennon-sml */}
                     </div>  
