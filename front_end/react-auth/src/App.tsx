@@ -8,10 +8,10 @@ import Register from './pages/Register';
 import WrongRoute from './pages/WrongRoute';
 
 function App() {
-
-const [username, setUsername] = useState('');
-  useEffect(
-      () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  
+  useEffect(() => {
           (
               async () => {
                   const response = await fetch('http://localhost:8000/v1/userauth', {
@@ -20,6 +20,8 @@ const [username, setUsername] = useState('');
                   });
                   const content = await response.json();
                   setUsername(content.username)
+                  setEmail(content.email)
+                  
               }
           )();
       }
@@ -33,8 +35,8 @@ const [username, setUsername] = useState('');
         <Nav name={username} setName={setUsername}/>
         
         <Routes>
-          <Route path='/' element={<Home username={username} />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Home username={username} email={email}/>} />
+          <Route path='/login' element={<Login setName={setUsername}/>} />
           <Route path='/register' element={<Register />} />
           <Route path='*' element={<WrongRoute />} />
         </Routes>

@@ -1,7 +1,7 @@
-import React, { SyntheticEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { SyntheticEvent,  useState } from "react";
+import {  useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props: {setName:(name: string) => void }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -19,9 +19,10 @@ const Login = () => {
                 password
             })
         })
-        
+        props.setName('')
         setRedirect(true);
     }
+    
     if (redirect) {
         navigate("/")
     }

@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://github.com/zennon-sml/JOJORNAL/blob/master/static/img/emerald.png?raw=true');
+  /* background-image: url('https://github.com/zennon-sml/JOJORNAL/blob/master/static/img/emerald.png?raw=true'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -65,4 +65,8 @@ code {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+}
+
+.loginout {
+  color: white;
 }
