@@ -1,4 +1,5 @@
-![RGB2](https://user-images.githubusercontent.com/76619871/211227296-3309ace9-3520-4bbb-a07d-4a281ed4f74a.png)
+![RGB2](https://user-images.githubusercontent.com/76619871/213952536-1d431135-d0d8-4ef0-8e63-0b9d6674e636.png)
+
 
 
 
