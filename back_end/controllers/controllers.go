@@ -15,7 +15,7 @@ import (
 
 func Register(ctx *gin.Context) {
 	//get user from request
-	var data map[string]string
+	var data map[string]string //creates a dictionary of string as id and string as data
 	if err := ctx.Bind(&data); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error:": err.Error()})
 		return

@@ -2,36 +2,36 @@ import React, { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    //defining all the variables to get from form
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const navigate = useNavigate();
 
+    //submit function after filing the form sending the resquest to the back-end
     const submit = async (e: SyntheticEvent) => {
-        e.preventDefault();
+        e.preventDefault();//prevents the default load after a submission
 
-        await fetch('http://localhost:8000/v1/register',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+        await fetch('http://localhost:8000/v1/register',{ //url
+            method: 'POST',                               //method
+            headers: {'Content-Type': 'application/json'},//headers
+            body: JSON.stringify({                        //JSON body
                 username,
                 email,
                 password
             })
         })
         
-        setRedirect(true);
+        setRedirect(true);//set the variable redirect to true so it will redirect
     }
     if (redirect) {
-        // return red("/login");
-        // navigate('/login');
-        // red("/login");
         navigate("/login");
     }
 
 
     return (
+        // returns my html form
         <div>
             <main className="form-signin w-100 m-auto">
                 <form onSubmit={submit}>
@@ -39,7 +39,7 @@ const Register = () => {
                     <h1 className="h3 mb-3 fw-normal">REGISTER</h1>
                     <div className="form-floating">
                     <input type="username" className="form-control" placeholder="username" 
-                        onChange={e => setUsername(e.target.value)}
+                        onChange={e => setUsername(e.target.value)}//setting the values to the variables
                     />
                     <label >Username</label>
                     </div>

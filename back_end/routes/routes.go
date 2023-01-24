@@ -6,6 +6,7 @@ import (
 )
 
 func SetUpRoutes(router *gin.Engine) {
+	//grouping my routes to the /v1 endpoint
 	v1 := router.Group("/v1")
 	{
 		v1.POST("/login", controllers.Login)

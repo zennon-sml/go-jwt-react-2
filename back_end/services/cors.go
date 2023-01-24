@@ -8,8 +8,11 @@ import (
 )
 
 func SetCORS(router *gin.Engine) {
+	//using gin cors configuration
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://locahost:3000"},
+		//the resquester which is my front end
+		AllowOrigins: []string{"http://locahost:3000"},
+		//methods that will be allowed
 		AllowMethods:     []string{"POST, OPTIONS, GET, PUT"},
 		AllowHeaders:     []string{"Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"},
 		ExposeHeaders:    []string{"Content-Length"},

@@ -1,36 +1,5 @@
 import { Link } from "react-router-dom";
 
-// const Nav = (props: {username: string, setName: (userName: string) => void}) => {
-//     const logout = async () => {
-//       await fetch('http://localhost:8000/v1/logout',{
-//         method: 'POST',
-//         headers: {'Content-Type': 'application-json'},
-//         credentials: 'include'
-//       })
-//       props.setName('');
-//     }
-
-//     let menu;
-//     if(props.username === ''){
-//       menu = (
-//         <ul className="navbar-nav me-auto mb-2 mb-md-0">
-//           <li className="nav-item">
-//             <Link to="/login" className="nav-link active" aria-current="page" >LOGIN</Link>
-//           </li>
-//           <li className="nav-item">
-//             <Link to="/register" className="nav-link active" aria-current="page" >REGISTER</Link>
-//           </li>
-//         </ul>
-//       )
-//     }else{
-//       menu = (
-//         <ul className="navbar-nav me-auto mb-2 mb-md-0">
-//           <li className="nav-item">
-//             <Link to="/login" className="nav-link active" aria-current="page" onClick={logout}>LOGOUT</Link>
-//           </li>
-//         </ul>
-//       )
-//     }  
 const Nav = (props: { name: string, setName: (name: string) => void }) => {
   const logout = async () => {
   
@@ -43,7 +12,7 @@ const Nav = (props: { name: string, setName: (name: string) => void }) => {
   }
 
   let menu;
-
+  //if the user is logedin it will show the logout option
   if (props.name) {
     menu = (
         <ul className="navbar-nav me-auto mb-2 mb-md-0">
@@ -52,7 +21,7 @@ const Nav = (props: { name: string, setName: (name: string) => void }) => {
             </li>
         </ul>
     )
-  } else {  
+  } else {  // and else it will show the login/register option
     menu = (
         <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item active">

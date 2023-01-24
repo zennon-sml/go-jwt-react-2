@@ -1,7 +1,7 @@
 body {
-  /* background-image: url('https://github.com/zennon-sml/JOJORNAL/blob/master/static/img/emerald.png?raw=true'); */
+  background-image: url("/public/emeraldgreen.png");
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment:fixed;
   background-size: 100% 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

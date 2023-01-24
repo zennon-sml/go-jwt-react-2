@@ -19,7 +19,7 @@ const Login = (props: {setName:(name: string) => void }) => {
                 password
             })
         })
-        props.setName('')
+        props.setName('')//seting the name on the app.tsx so all the app knows that the username was changed
         setRedirect(true);
     }
     

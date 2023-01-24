@@ -21,7 +21,7 @@ const Home = (props: {username: string; email: string}) =>{
             <div className="card p-3 py-4">
                 
                 <div className="text-center">
-                    <img src="https://avatars.githubusercontent.com/u/76619871?v=4" width="100" className="rounded-circle" alt=""/>
+                    <img src="https://avatars.githubusercontent.com/u/76619871?v=4" width="150" className="rounded-circle" alt=""/>
                 </div>
                 
                 <div className="text-center mt-3">
@@ -29,7 +29,7 @@ const Home = (props: {username: string; email: string}) =>{
                     <span>{props.email}</span>
                     <div className="buttons">  
                         <button className="btn btn-outline-primary px-4" onClick={github}>github</button>
-                        <button className="btn btn-primary px-4 ms-3" onClick={linkedin}>linkedin</button>
+                        <button className="btn btn-outline-primary px-4 ms-3" onClick={linkedin}>linkedin</button>
                         {/* https://www.linkedin.com/in/zennon-sampaio/
                         https://github.com/zennon-sml */}
                     </div>  
