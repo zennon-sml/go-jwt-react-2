@@ -13,7 +13,7 @@
 - [x] And at last but not least having some **fun :}**
 
 ## SERVER
-- [X] [GIN](https://pkg.go.dev/github.com/gin-gonic/gin): deal with requests and responses
+- [X] [GIN](https://pkg.go.dev/github.com/gin-gonic/gin): deal with requests and responses, set cookies and the JWT token
 
 ## ROUTES
 - [x] POST   /v1/register              --> github.com/zennon-sml/GJR2/controllers.Register (3 handlers)
@@ -35,3 +35,6 @@
 
 ## PASSWORD SAFETY
 - [x] [BCRYPT](https://pkg.go.dev/golang.org/x/crypto/bcrypt): password encrypiting and decripter
+
+## POSTMAN
+- [x] [POSTMAN](https://www.postman.com/): use for testing the back end with requests
